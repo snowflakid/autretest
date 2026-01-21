@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>photos du club - Stade Clermontois Gym</title>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+	<style>
+		.contact-form {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			max-width: 600px;
+			margin: 30px auto;
+			text-align: left;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.form-group label {
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: #333;
+		}
+
+		.form-group input,
+		.form-group textarea {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-family: inherit;
+			font-size: 1rem;
+			background-color: #fcfcfc;
+		}
+
+		.submit-btn {
+			background-color: #206DA8;
+			color: white;
+			border: none;
+			padding: 12px 25px;
+			font-size: 1rem;
+			border-radius: 4px;
+			cursor: pointer;
+			align-self: flex-start;
+			transition: background 0.3s;
+		}
+
+		.submit-btn:hover {
+			background-color: #164f7a;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="header">
+		<div class="align-left">
+			<a href='index.html'><img class="title-left logoimg" src="assets/logohq.webp"></a>
+			<p class="jaune titre title-left">Stade Clermontois Gymnastique</p>
+		</div>
+		<p class="texte-m">Aérobic - GAF compétition - Petite Enfance (club labélisé) - Gym Forme Loisir</p>
+	</header>
+
+	<div class="navbar">
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Accueil
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Boutique FFG</a>
+				<a href="index.html">Accueil</a>
+				<a href="contact.html">Contact et plans</a>
+				<a href="#">Liens</a>
+				<a href="#">Un peu d'histoire</a>
+				<a href="#">Nos partenaires</a>
+				<a href="#">Boutique du Stade Clermontois</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">La vie du Club
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Charte de bonne conduite</a>
+				<a href="#">Les administratifs</a>
+				<a href="#">Les news</a>
+				<a href="#">Chartes et Valeurs de la FFGYM</a>
+				<a href="#">Compétition et évenements</a>
+				<a href="#">Résultats</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Infos Pratiques
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Aérobic</a>
+				<a href="#">Découvrez nos disciplines par 3 petites vidéos</a>
+				<a href="#">Mises à jour sur le site</a>
+				<a href="#">Newsletter FFGym</a>
+				<a href="#">Le GymMag</a>
+				<a href="#">Calendrier compétitions toutes disciplines</a>
+				<a href="#">Planning et entrainements</a>
+				<a href="#">Presse</a>
+				<a href="#">Documents</a>
+				<a href="#">Tarifs adhésion</a>
+				<a href="#">Reglement intérieur</a>
+				<a href="#">Tableau Âges - Catégories</a>
+				<a href="#">Dates réunions bureau de la section</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Gym Compétition
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Gymnastique Artistique Féminine</a>
+				<a href="#">Encadrement technique GAF compétition</a>
+				<a href="#">Gym Loisir Adulte</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Petite Enfance
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="index.html">Petite Enfance</a>
+				<a href="encadrement.html">Encadrement technique Petite Enfance</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Photos et Vidéos
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Appel aux Photographes</a>
+				<a href="Photo.html">Photos</a>
+				<a href="Video.html">Vidéos</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="banderole">
+		<img src="assets/banderole.png">
+	</div>
+	<div class='contenu'>
+		<h2>Nos Albums Photos</h2>
+
+		<div class="barre-filtres">
+			<select class="mon-select">
+				<option>Saison 2025-2026</option>
+			</select>
+			<select class="mon-select">
+				<option>Toutes les équipes</option>
+			</select>
+		</div>
+
+		<br>
+		<hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;"><br>
+
+		<div class="album-container">
+			<h3>Challenge Vaillants Arvernes Aulnat</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 04 déc. 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">GAF</span>
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image1.jpg" alt="Gymnastes podium">
+				<img src="assets/image2.jpg" alt="Groupe gymnastes">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Inter-départements OUEST Bellerive</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 27 mai 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">GAF</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image3.jpg" alt="Podium Bellerive">
+				<img src="assets/image4.jpg" alt="Gymnastes rouge">
+				<img src="assets/image5.jpg" alt="Gymnastes salle">
+				<img src="assets/image6.jpg" alt="Equipe">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Rencontre accessgym et Coupe départementale</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 11 avril 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Aérobic</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image7.jpg" alt="Affiche">
+				<img src="assets/image8.jpg" alt="Salle compétition">
+				<img src="assets/image9.jpg" alt="Praticable">
+				<img src="assets/image10.jpg" alt="Podium">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Aérobic 08 mars 2025 Les Cézeaux</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 09 mars 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Aérobic</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image11.png" alt="Affiche">
+				<img src="assets/image12.jpg" alt="Salle compétition">
+				<img src="assets/image13.jpg" alt="Praticable">
+				<img src="assets/image14.jpg" alt="Podium">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Aérobic Cusset 08/02/2025</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 23 fév. 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Aérobic</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image15.jpg" alt="Podium Cusset">
+				<img src="assets/image16.jpg" alt="Groupe Cusset">
+				<img src="assets/image17.jpg" alt="Gymnastes Cusset">
+				<img src="assets/image18.jpg" alt="Médailes Cusset">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Challenge de Mozac 11 janvier 2025</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 13 janv. 2025 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image19.jpg" alt="Groupe Mozac">
+				<img src="assets/image20.jpg" alt="Enfants Mozac">
+				<img src="assets/image21.jpg" alt="Parcours Mozac">
+				<img src="assets/image22.jpg" alt="Podium Mozac">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Le père Noël à la Maison des Sports</h3>
+
+			<div class="album-infos" style="font-style: italic; font-size: 10px; text-align: center;">
+				<p class="meta-date">Publié le 21 déc. 2024 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image23.jpg" alt="Groupe Père Noël">
+				<img src="assets/image24.jpg" alt="Père Noël enfant">
+				<img src="assets/image25.jpg" alt="Père Noël cadeau">
+				<img src="assets/image26.jpg" alt="Distribution cadeaux">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Assemblée générale Stade Clermontois omnisports</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 15 déc. 2024 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Vie du Club</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="font-style: italic; font-size: 10px; text-align: center;">
+				<img src="assets/image27.jpg" alt="Discours AG">
+				<img src="assets/image28.jpg" alt="Salle AG">
+				<img src="assets/image29.jpg" alt="Présentation AG">
+				<img src="assets/image30.jpg" alt="Public AG">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Challenge Aulnat 23 novembre 2024</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 06 déc. 2024 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">GAF</span>
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image31.jpg" alt="Podium Aulnat">
+				<img src="assets/image32.jpg" alt="Equipe Aulnat">
+				<img src="assets/image33.jpg" alt="Médailles Aulnat">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Archives du Stade Clermontois Gym</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 26 fév. 2018 par Yves FAURE</p>
+				<div class="tags-group"
+					style="font-style: italic; font-size: 10px; text-align: center;">
+					<span class="tag-badge">Aérobic</span>
+					<span class="tag-badge">GAF</span>
+					<span class="tag-badge">GFLoisir</span>
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image34.jpg" alt="Archive Noir et Blanc 1">
+				<img src="assets/image35.jpg" alt="Archive Noir et Blanc 2">
+				<img src="assets/image36.jpg" alt="Archive équipe ancienne">
+				<img src="assets/image37.jpg" alt="Archive gymnastes">
+			</div>
+		</div>
+
+	</div>
+	<footer>
+		<div class="footer-top">
+			<p><a class="blanc lien" href="https://www.facebook.com/STADECLERMONTOISOMNISPORTS">Facebook</a>
+			</p>
+		</div>
+		<div class="footer-content">
+			<div class="footer-section footer-left">
+				<strong>
+					<a class="lien" href="https://www.sportsregions.fr/inscription">
+						<p class="lien rouge">SPORTS<em class="bleu">REGIONS</em></p>
+					</a>
+				</strong>
+			</div>
+			<div class="footer-section footer-center">
+				<a
+					href="https://play.google.com/store/apps/details?id=com.initiatives.sportsregions&hl=fr_FR"><img
+						src="assets/playstore.svg" class="store-icon"></a>
+				<a href="https://itunes.apple.com/fr/app/sportsregions/id890452369"><img
+						src="assets/appstore.svg" class="store-icon"></a>
+			</div>
+			<div class="blanc footer-section footer-right">
+				<p>Charte cookie - Gestion des cookies - Informations légales - Signaler un contenu
+					inapproprié</p>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>

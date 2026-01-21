@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>photos du club - Stade Clermontois Gym</title>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+	<style>
+		.contact-form {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			max-width: 600px;
+			margin: 30px auto;
+			text-align: left;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.form-group label {
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: #333;
+		}
+
+		.form-group input,
+		.form-group textarea {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-family: inherit;
+			font-size: 1rem;
+			background-color: #fcfcfc;
+		}
+
+		.submit-btn {
+			background-color: #206DA8;
+			color: white;
+			border: none;
+			padding: 12px 25px;
+			font-size: 1rem;
+			border-radius: 4px;
+			cursor: pointer;
+			align-self: flex-start;
+			transition: background 0.3s;
+		}
+
+		.submit-btn:hover {
+			background-color: #164f7a;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="header">
+		<div class="align-left">
+			<a href='index.html'><img class="title-left logoimg" src="assets/logohq.webp"></a>
+			<p class="jaune titre title-left">Stade Clermontois Gymnastique</p>
+		</div>
+		<p class="texte-m">Aérobic - GAF compétition - Petite Enfance (club labélisé) - Gym Forme Loisir</p>
+	</header>
+
+	<div class="navbar">
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Accueil
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Boutique FFG</a>
+				<a href="index.html">Accueil</a>
+				<a href="contact.html">Contact et plans</a>
+				<a href="#">Liens</a>
+				<a href="#">Un peu d'histoire</a>
+				<a href="#">Nos partenaires</a>
+				<a href="#">Boutique du Stade Clermontois</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">La vie du Club
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Charte de bonne conduite</a>
+				<a href="#">Les administratifs</a>
+				<a href="#">Les news</a>
+				<a href="#">Chartes et Valeurs de la FFGYM</a>
+				<a href="#">Compétition et évenements</a>
+				<a href="#">Résultats</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Infos Pratiques
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Aérobic</a>
+				<a href="#">Découvrez nos disciplines par 3 petites vidéos</a>
+				<a href="#">Mises à jour sur le site</a>
+				<a href="#">Newsletter FFGym</a>
+				<a href="#">Le GymMag</a>
+				<a href="#">Calendrier compétitions toutes disciplines</a>
+				<a href="#">Planning et entrainements</a>
+				<a href="#">Presse</a>
+				<a href="#">Documents</a>
+				<a href="#">Tarifs adhésion</a>
+				<a href="#">Reglement intérieur</a>
+				<a href="#">Tableau Âges - Catégories</a>
+				<a href="#">Dates réunions bureau de la section</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Gym Compétition
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Gymnastique Artistique Féminine</a>
+				<a href="#">Encadrement technique GAF compétition</a>
+				<a href="#">Gym Loisir Adulte</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Petite Enfance
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="index.html">Petite Enfance</a>
+				<a href="encadrement.html">Encadrement technique Petite Enfance</a>
+			</div>
+		</div>
+		<div class="dropdown texte-m">
+			<button class="dropbtn texte-m">Photos et Vidéos
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Appel aux Photographes</a>
+				<a href="Photo.html">Photos</a>
+				<a href="Video.html">Vidéos</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="banderole">
+		<img src="assets/banderole.png">
+	</div>
+	<div class='contenu'>
+		<h2>Les albums vidéos</h2>
+
+		<div class="barre-filtres">
+			<select class="mon-select">
+				<option>Saison 2025-2026</option>
+			</select>
+			<select class="mon-select">
+				<option>Toutes les équipes</option>
+			</select>
+		</div>
+
+		<br>
+		<hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;"><br>
+
+		<div class="album-container">
+			<h3>Aéroic Cusset le 08 février 2025</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 06 mars 2025 par Yves FAURE</p>
+				<div class="tags-group">
+					<span class="tag-badge">GAF</span>
+					<span class="tag-badge">Petite Enfance</span>
+				</div>
+			</div>
+
+			<div class="album-grid">
+				<video width="640" height="360" controls>
+					<source src="assets/vidéo1.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="album-grid">
+				<video width="640" height="360" controls>
+					<source src="assets/vidéo2.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="album-container">
+			<h3>Petite présentation du SCGym</h3>
+
+			<div class="album-infos">
+				<p class="meta-date">Publié le 27 oct. 2016 par Yves FAURE</p>
+			</div>
+
+			<div class="album-grid" style="text-align: center;">
+				<img src="assets/image3.png">
+			</div>
+		</div>
+
+		<div class="album-separator"></div>
+
+		<div class="comments-box">
+			<h4 style="font-style: italic; font-weight: 600; text-align: center;">Commentez l'album</h4>
+			<div class="comments-content">
+				<div class="login-alert">
+					<a href="#" style="color: inherit; text-decoration: none;">
+						<strong>Connectez-vous</strong>
+					</a>
+					pour pouvoir participer aux commentaires.
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="footer-top">
+			<p><a class="blanc lien" href="https://www.facebook.com/STADECLERMONTOISOMNISPORTS">Facebook</a>
+			</p>
+		</div>
+		<div class="footer-content">
+			<div class="footer-section footer-left">
+				<strong>
+					<a class="lien" href="https://www.sportsregions.fr/inscription">
+						<p class="lien rouge">SPORTS<em class="bleu">REGIONS</em></p>
+					</a>
+				</strong>
+			</div>
+			<div class="footer-section footer-center">
+				<a
+					href="https://play.google.com/store/apps/details?id=com.initiatives.sportsregions&hl=fr_FR"><img
+						src="assets/playstore.svg" class="store-icon"></a>
+				<a href="https://itunes.apple.com/fr/app/sportsregions/id890452369"><img
+						src="assets/appstore.svg" class="store-icon"></a>
+			</div>
+			<div class="blanc footer-section footer-right">
+				<p>Charte cookie - Gestion des cookies - Informations légales - Signaler un contenu
+					inapproprié</p>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>
